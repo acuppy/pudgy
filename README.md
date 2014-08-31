@@ -103,24 +103,24 @@ Pudgy will attempt to build relationships between objects.
 
 ```json
 {
-  users: [{
-    id: "1",
-    company_id: "1",
-    firstname: "Billy",
-    lastname: "Bob",
+  "users": [{
+    "id": "1",
+    "company_id": "1",
+    "firstname": "Billy",
+    "lastname": "Bob",
   },{
-    id: "2",
-    company_id: "2",
-    firstname: "Jimmy",
-    lastname: "John",
+    "id": "2",
+    "company_id": "2",
+    "firstname": "Jimmy",
+    "lastname": "John",
   }],
   
-  companies: [{
-    id: "1",
-    name: "ABC, Inc."
+  "companies": [{
+    "id": "1",
+    "name": "ABC, Inc."
   },{
-    id: "2",
-    name: "DEF, LLC."
+    "id": "2",
+    "name": "DEF, LLC."
   }]
 }
 ```
