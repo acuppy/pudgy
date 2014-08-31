@@ -94,3 +94,46 @@ module Pudgy
   end
 end
 ```
+
+Pudgy will look for a defined representation before it uses a generic representation.
+
+#### Defining Relationships
+
+Pudgy will attempt to build relationships between objects.
+
+```json
+{
+  users: [{
+    id: "1",
+    company_id: "1",
+    firstname: "Billy",
+    lastname: "Bob",
+  },{
+    id: "2",
+    company_id: "2",
+    firstname: "Jimmy",
+    lastname: "John",
+  }],
+  
+  companies: [{
+    id: "1",
+    name: "ABC, Inc."
+  },{
+    id: "2",
+    name: "DEF, LLC."
+  }]
+}
+```
+
+Similar to Rails, when the association is pluralized, Pudgy will assume a has\_many relationship between "companies" and the "user" and a belong\_to relationship between "user" and "companies".  You can customize this relationship by defining a `foreign_key` on in your custom representation:
+
+```ruby
+module Pudgy
+  module Representation
+    class User < Base
+      belongs_to :company, foreign_key: "organization"
+      ...
+    end
+  end
+end
+```
