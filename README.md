@@ -1,8 +1,10 @@
 ## Pudgy
 
-A generic Ruby interface for any JSON or XML API
+A generic Ruby interface for any JSON or XML API.  There are many libraries which handle connections to a remote service.  Pudgy is designed to consume the response data and auto-magically convert that data into Ruby representations, which can be viewed, modified and updated.
 
 #### Usage
+
+##### Connecting to a resource
 
 Build a connection relationship:
 
@@ -36,19 +38,19 @@ end
 
 There are also shorthand methods which will build the connection and make the request
 
-#### Consume (get)
+#### Consume (GET)
 
 ```ruby
 users = Pudgy.consume("http://api.example.com/users")
 ````
 
-Bypass autoloading by passing `autoload: false` as a argument:
+You can also pass in a representation and Pudgy will output a Ruby representation:
 
 ```ruby
-users = Pudgy.consume("http://api.example.com/users", autoload: false)
+users = Pudgy.consume("{ user: { firstname: "Billy", lastname: "Bob" } }")
 ````
 
-#### Emit (post)
+#### Emit (POST)
 
 ```ruby
 address = {
@@ -60,3 +62,35 @@ address = {
 
 response = Pudgy.emit("http://api.example.com/users/1", data: address)
 ````
+
+##### Representing an entity
+
+By default Pudgy will consume a representation and convert all attributes into `attr_accessor` properties on the object.
+
+It assumes the root element is the object definition (e.g. "user" is `User`)
+
+```ruby
+user = Pudgy.consume("{
+  user: {
+    firstname: "Billy",
+    lastname: "Bob"
+  }
+}")
+```
+
+You can customize a representation by defining a Representation class:
+
+```ruby
+module Pudgy
+  module Representation
+    class User < Base
+      property: "firstname"
+      property: "lastname"
+      
+      def fullname
+        "#{self.firstname} #{self.lastname}"
+      end
+    end
+  end
+end
+```
