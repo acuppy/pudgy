@@ -70,12 +70,12 @@ By default Pudgy will consume a representation and convert all attributes into `
 It assumes the root element is the object definition (e.g. "user" is `User`)
 
 ```ruby
-user = Pudgy.consume("{
+user = Pudgy.consume('{
   "user": {
     "firstname": "Billy",
     "lastname": "Bob"
   }
-}")
+}')
 ```
 
 You can customize a representation by defining a Representation class:
