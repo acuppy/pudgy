@@ -47,8 +47,8 @@ users = Pudgy.consume("http://api.example.com/users")
 You can also pass in a representation and Pudgy will output a Ruby representation:
 
 ```ruby
-users = Pudgy.consume("{ user: { firstname: "Billy", lastname: "Bob" } }")
-````
+users = Pudgy.consume('{ user: { firstname: "Billy", lastname: "Bob" } }')
+```
 
 #### Emit (POST)
 
@@ -61,7 +61,7 @@ address = {
 }
 
 response = Pudgy.emit("http://api.example.com/users/1", data: address)
-````
+```
 
 ##### Representing an entity
 
