@@ -71,9 +71,9 @@ It assumes the root element is the object definition (e.g. "user" is `User`)
 
 ```ruby
 user = Pudgy.consume("{
-  user: {
-    firstname: "Billy",
-    lastname: "Bob"
+  "user": {
+    "firstname": "Billy",
+    "lastname": "Bob"
   }
 }")
 ```
