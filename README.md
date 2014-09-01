@@ -1,6 +1,8 @@
 ## Pudgy
 
-A generic Ruby interface for any JSON or XML API.  There are many libraries which handle connections to a remote service.  Pudgy is designed to consume the response data and auto-magically convert that data into Ruby representations, which can be viewed, modified and updated.
+Pudgy will consume an entire JSON/XML representation from the API end-point and convert it into a Ruby representation.
+
+There are many libraries which handle connections to a remote service.  Pudgy is designed to consume the response data and auto-magically convert that data into Ruby representations, which can be viewed, modified and updated.
 
 #### Usage
 
@@ -79,8 +81,8 @@ You can customize a representation by defining a Representation class:
 module Pudgy
   module Representation
     class User < Base
-      property: "firstname"
-      property: "lastname"
+      property :firstname
+      property :lastname
       
       def fullname
         "#{self.firstname} #{self.lastname}"
