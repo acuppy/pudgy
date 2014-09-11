@@ -122,7 +122,7 @@ Pudgy will attempt to build relationships between objects.
 }
 ```
 
-Similar to Rails, when the association is pluralized, Pudgy will assume a has\_many relationship between "companies" and the "user" and a belong\_to relationship between "user" and "companies".  You can customize this relationship by defining a `foreign_key` on in your custom representation:
+Similar to Rails, when the association is pluralized, Pudgy will assume a has\_many relationship between "companies" and the "user" and a belong\_to relationship between "user" and "companies".  You can customize this relationship by defining a `foreign_key` in your custom representation:
 
 ```ruby
 module Pudgy
